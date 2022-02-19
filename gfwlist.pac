@@ -5957,7 +5957,7 @@ function FindProxyForURL(url, host) {
         if (ret != undefined)
             return ret;
     }
-    return 'DIRECT';
+    return proxy;
 }
 
 function testHost(host, index) {
@@ -5965,7 +5965,7 @@ function testHost(host, index) {
         for (var j = 0; j < rules[index][i].length; j++) {
             lastRule = rules[index][i][j];
             if (host == lastRule || host.endsWith('.' + lastRule))
-                return i % 2 == 0 ? 'DIRECT' : proxy;
+                return i % 2 == 0 ? proxy: 'DIRECT';
         }
     }
     lastRule = '';
